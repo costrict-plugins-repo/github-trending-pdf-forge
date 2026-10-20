@@ -1,0 +1,71 @@
+{
+  "name": "pdf-forge-mcp",
+  "version": "0.3.2",
+  "private": false,
+  "type": "module",
+  "description": "Professional PDF generation with Tailwind CSS. Anti-AI-sloppy slides and documents.",
+  "author": {
+    "name": "Gabriel Falcao"
+  },
+  "license": "MIT",
+  "keywords": [
+    "pdf",
+    "slides",
+    "presentation",
+    "tailwind",
+    "design",
+    "documents",
+    "mcp",
+    "claude"
+  ],
+  "bin": {
+    "pdf-forge": "dist/bin/pdf-forge.js",
+    "pdf-forge-mcp": "dist/bin/pdf-forge.js"
+  },
+  "exports": {
+    "./mcp": "./dist/src/mcp/server.js"
+  },
+  "files": [
+    "dist/",
+    "bin/pdf-forge.ts",
+    "assets/",
+    "scripts/",
+    "skills/",
+    "src/core/",
+    "src/data/",
+    "src/mcp/",
+    "src/registry/",
+    "install.sh",
+    ".claude-plugin/"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint:anti-slop": "oxlint -c oxlint.config.ts --deny-warnings src bin scripts tests",
+    "test": "bun test --parallel=1 --timeout=60000",
+    "cli": "bun run bin/pdf-forge.ts",
+    "render": "bun run scripts/render-pdf.ts",
+    "merge": "bun run scripts/merge-pages.ts",
+    "pptx": "bun run scripts/png-to-pptx.ts",
+    "gen-images": "bun run scripts/gen-images.ts",
+    "mermaid": "bun run scripts/prerender-mermaid.ts",
+    "psd:extract": "bun run scripts/psd-extract.ts",
+    "psd:slides": "bun run scripts/psd-to-slides.ts",
+    "psd:deck": "bun run scripts/psd-to-deck.ts",
+    "prepublishOnly": "bun run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "js-yaml": "^5.0.0",
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.50.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@oxlint/plugins": "1.78.0",
+    "@types/node": "^25.5.2",
+    "oxlint": "1.78.0",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.0"
+  }
+}

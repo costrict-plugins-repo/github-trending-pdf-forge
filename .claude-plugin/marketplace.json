@@ -1,0 +1,14 @@
+{
+  "name": "syx-labs-plugins",
+  "owner": {
+    "name": "Gabriel Falcao",
+    "url": "https://github.com/syx-labs"
+  },
+  "plugins": [
+    {
+      "name": "pdf-forge",
+      "source": "./",
+      "description": "Professional PDF generation with Tailwind CSS. Slides and documents with Vercel/Stripe-quality aesthetics."
+    }
+  ]
+}
